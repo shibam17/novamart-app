@@ -244,9 +244,9 @@ export const products: Product[] = [
     },
     category: "Home & Kitchen",
     subcategory: "Vacuums",
-    image: "https://images.unsplash.com/photo-1527515637462-cee1cc710ab5?w=600&h=600&fit=crop&crop=center",
+    image: "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=600&h=600&fit=crop&crop=center",
     images: [
-      "https://images.unsplash.com/photo-1527515637462-cee1cc710ab5?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["One Size"],
@@ -384,7 +384,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=600&h=600&fit=crop&crop=center",
     images: [
       "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1546868871-af0de0ae72be?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["49mm"],
@@ -472,7 +472,7 @@ export const products: Product[] = [
     images: [
       "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1570194065650-d99fb4ee24a0?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["30ml", "60ml"],
     colors: [],
@@ -557,7 +557,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=600&fit=crop&crop=center",
     images: [
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1523362628745-0c100fc988a1?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["18oz", "26oz", "36oz", "46oz"],
     colors: [
@@ -641,11 +641,11 @@ export const products: Product[] = [
     },
     category: "Electronics",
     subcategory: "Earbuds",
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12f8b68c2?w=600&h=600&fit=crop&crop=center",
+    image: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&h=600&fit=crop&crop=center",
     images: [
-      "https://images.unsplash.com/photo-1590658268037-6bf12f8b68c2?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1631867675167-90a456a90863?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["One Size"],
     colors: [
@@ -784,7 +784,7 @@ export const products: Product[] = [
     images: [
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1622260614153-03223fb72052?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1581791534721-e599df4417f6?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["S/M", "L/XL"],
     colors: [
@@ -868,7 +868,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center",
     images: [
       "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1580480055497-2f463318ab4b?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["Size A (Small)", "Size B (Medium)", "Size C (Large)"],
     colors: [
