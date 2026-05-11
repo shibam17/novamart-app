@@ -48,7 +48,7 @@ export default function Header() {
             <Link href="/products?category=Home+%26+Kitchen" className="text-gray-700 hover:text-gray-900 transition-colors">
               Home
             </Link>
-            <Link href="/products?category=Sports" className="text-gray-700 hover:text-gray-900 transition-colors">
+            <Link href="/products?category=Sports+%26+Outdoors" className="text-gray-700 hover:text-gray-900 transition-colors">
               Sports
             </Link>
           </nav>
@@ -123,7 +123,7 @@ export default function Header() {
               <Link href="/products?category=Home+%26+Kitchen" className="text-gray-700 hover:text-gray-900" onClick={() => setMobileMenuOpen(false)}>
                 Home & Kitchen
               </Link>
-              <Link href="/products?category=Sports" className="text-gray-700 hover:text-gray-900" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/products?category=Sports+%26+Outdoors" className="text-gray-700 hover:text-gray-900" onClick={() => setMobileMenuOpen(false)}>
                 Sports
               </Link>
               <Link href="/cart" className="text-gray-700 hover:text-gray-900" onClick={() => setMobileMenuOpen(false)}>
