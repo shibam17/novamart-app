@@ -36,9 +36,22 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
-            <Link href="/products" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Products
-            </Link>
+            <div className="relative group" data-testid="nav-dropdown">
+              <Link href="/products" className="text-gray-700 hover:text-gray-900 transition-colors py-4">
+                Products
+              </Link>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" data-testid="nav-dropdown-menu">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[200px]">
+                  <Link href="/products" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">All Products</Link>
+                  <Link href="/products?category=Electronics" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Electronics</Link>
+                  <Link href="/products?category=Clothing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Clothing</Link>
+                  <Link href="/products?category=Home+%26+Kitchen" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home & Kitchen</Link>
+                  <Link href="/products?category=Sports+%26+Outdoors" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sports & Outdoors</Link>
+                  <Link href="/products?category=Beauty+%26+Personal+Care" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Beauty & Personal Care</Link>
+                  <Link href="/products?category=Books+%26+Stationery" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Books & Stationery</Link>
+                </div>
+              </div>
+            </div>
             <Link href="/products?category=Electronics" className="text-gray-700 hover:text-gray-900 transition-colors">
               Electronics
             </Link>

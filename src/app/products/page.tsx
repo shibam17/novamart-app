@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { products, categories } from "@/data/products";
 import { useState, useMemo, Suspense } from "react";
+import { addToCart } from "@/data/cart-store";
 
 function ProductsContent() {
   const searchParams = useSearchParams();
@@ -14,6 +15,7 @@ function ProductsContent() {
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [showInStockOnly, setShowInStockOnly] = useState(false);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [contextMenu, setContextMenu] = useState<{ x: number; y: number; productId: string } | null>(null);
 
   const allBrands = useMemo(() => {
     const brands = [...new Set(products.map((p) => p.brand))];
@@ -284,12 +286,19 @@ function ProductsContent() {
               </button>
             </div>
           ) : viewMode === "grid" ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6" data-testid="product-grid">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6" data-testid="product-grid" onClick={() => setContextMenu(null)}>
               {filteredProducts.map((product) => (
-                <Link
+                <div
                   key={product.id}
+                  className="relative"
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    setContextMenu({ x: e.clientX, y: e.clientY, productId: product.id });
+                  }}
+                >
+                <Link
                   href={`/products/${product.id}`}
-                  className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all group"
+                  className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all group block"
                   data-testid={`product-card-${product.id}`}
                 >
                   <div className="aspect-square bg-gray-100 relative overflow-hidden">
@@ -329,7 +338,52 @@ function ProductsContent() {
                     )}
                   </div>
                 </Link>
+                </div>
               ))}
+
+              {/* Right-Click Context Menu */}
+              {contextMenu && (
+                <div
+                  className="fixed bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50 min-w-[180px]"
+                  style={{ top: contextMenu.y, left: contextMenu.x }}
+                  data-testid="context-menu"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    data-testid="ctx-quick-view"
+                    onClick={() => { window.location.href = `/products/${contextMenu.productId}`; setContextMenu(null); }}
+                  >
+                    Quick View
+                  </button>
+                  <button
+                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    data-testid="ctx-add-to-cart"
+                    onClick={() => {
+                      const p = products.find(pr => pr.id === contextMenu.productId);
+                      if (p) addToCart({ productId: p.id, name: p.name, price: p.price, image: p.image, size: p.sizes[0], color: p.colors[0]?.name || "Default", quantity: 1 });
+                      setContextMenu(null);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    data-testid="ctx-copy-link"
+                    onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/products/${contextMenu.productId}`); setContextMenu(null); }}
+                  >
+                    Copy Link
+                  </button>
+                  <hr className="my-1" />
+                  <button
+                    className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                    data-testid="ctx-close"
+                    onClick={() => setContextMenu(null)}
+                  >
+                    Close
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <div className="space-y-4" data-testid="product-list">

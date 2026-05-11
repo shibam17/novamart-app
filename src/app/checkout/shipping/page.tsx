@@ -168,6 +168,37 @@ export default function ShippingPage() {
           </div>
         </div>
 
+        {/* Shipping Method - Radio Buttons */}
+        <fieldset className="border border-gray-200 rounded-xl p-4" data-testid="shipping-method">
+          <legend className="text-sm font-medium text-gray-700 px-2">Shipping Method *</legend>
+          <div className="space-y-3 mt-2">
+            <label className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50">
+              <input type="radio" name="shippingMethod" value="standard" defaultChecked className="w-4 h-4 text-blue-600" data-testid="radio-standard" />
+              <div className="flex-1">
+                <span className="text-sm font-medium text-gray-900">Standard Shipping</span>
+                <p className="text-xs text-gray-500">5-7 business days</p>
+              </div>
+              <span className="text-sm font-medium text-gray-900">Free</span>
+            </label>
+            <label className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50">
+              <input type="radio" name="shippingMethod" value="express" className="w-4 h-4 text-blue-600" data-testid="radio-express" />
+              <div className="flex-1">
+                <span className="text-sm font-medium text-gray-900">Express Shipping</span>
+                <p className="text-xs text-gray-500">2-3 business days</p>
+              </div>
+              <span className="text-sm font-medium text-gray-900">$9.99</span>
+            </label>
+            <label className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50">
+              <input type="radio" name="shippingMethod" value="overnight" className="w-4 h-4 text-blue-600" data-testid="radio-overnight" />
+              <div className="flex-1">
+                <span className="text-sm font-medium text-gray-900">Overnight Shipping</span>
+                <p className="text-xs text-gray-500">Next business day</p>
+              </div>
+              <span className="text-sm font-medium text-gray-900">$24.99</span>
+            </label>
+          </div>
+        </fieldset>
+
         <div className="flex items-center justify-between pt-4">
           <Link href="/cart" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
             ← Back to Cart

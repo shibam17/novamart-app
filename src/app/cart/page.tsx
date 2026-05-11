@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getCart, updateCartItemQuantity, removeFromCart, getCartTotal, CartItem } from "@/data/cart-store";
 
 export default function CartPage() {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setCart(getCart());
@@ -40,12 +42,32 @@ export default function CartPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items */}
         <div className="lg:col-span-2 space-y-4" data-testid="cart-items">
-          {cart.map((item) => (
+          {cart.map((item, index) => (
             <div
               key={`${item.productId}-${item.size}-${item.color}`}
-              className="flex gap-4 bg-white border border-gray-200 rounded-xl p-4"
+              className={`flex gap-4 bg-white border rounded-xl p-4 transition-all ${dragOverIndex === index ? "border-blue-400 bg-blue-50" : "border-gray-200"} ${dragIndex === index ? "opacity-50" : ""}`}
               data-testid={`cart-item-${item.productId}`}
+              draggable
+              onDragStart={() => setDragIndex(index)}
+              onDragOver={(e) => { e.preventDefault(); setDragOverIndex(index); }}
+              onDragLeave={() => setDragOverIndex(null)}
+              onDrop={() => {
+                if (dragIndex !== null && dragIndex !== index) {
+                  const newCart = [...cart];
+                  const [moved] = newCart.splice(dragIndex, 1);
+                  newCart.splice(index, 0, moved);
+                  setCart(newCart);
+                }
+                setDragIndex(null);
+                setDragOverIndex(null);
+              }}
+              onDragEnd={() => { setDragIndex(null); setDragOverIndex(null); }}
             >
+              <div className="flex items-center cursor-grab active:cursor-grabbing text-gray-300 hover:text-gray-500" data-testid={`drag-handle-${item.productId}`}>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M7 2a2 2 0 10 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4zM7 8a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4zM7 14a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z" />
+                </svg>
+              </div>
               <div className="w-24 h-24 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                 <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
               </div>
