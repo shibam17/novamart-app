@@ -244,10 +244,10 @@ export const products: Product[] = [
     },
     category: "Home & Kitchen",
     subcategory: "Vacuums",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=600&fit=crop&crop=center",
+    image: "https://images.unsplash.com/photo-1527515637462-cee1cc710ab5?w=600&h=600&fit=crop&crop=center",
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=600&fit=crop&crop=center",
       "https://images.unsplash.com/photo-1527515637462-cee1cc710ab5?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=600&fit=crop&crop=center",
     ],
     sizes: ["One Size"],
     colors: [
